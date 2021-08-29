@@ -28,24 +28,25 @@ public class MainApp {
 		chainCalc2.setNextChain(chainCalc3);
 		chainCalc3.setNextChain(chainCalc4);
 
-		Scanner scan = new Scanner(System.in);
+		//Scanner scan = new Scanner(System.in);
 		while (run) {
-
+			Scanner scan = new Scanner(System.in);
 			System.out.println("Enter the mathematical operations like Add, Sub, Mult, Div:");
 			String operation = scan.nextLine();
+			if(operation.equals("add") || operation.equals("sub") || operation.equals("mult") || operation.equals("div") ) {
+				System.out.println("Enter number 1: ");
+				int input1 = scan.nextInt();
 
-			System.out.println("Enter number 1: ");
-			int input1 = scan.nextInt();
+				System.out.println("Enter number 2: ");
+				int input2 = scan.nextInt();
+				
+				// Define the data in the Numbers Object
+				// and send it to the first Object in the chain
 
-			System.out.println("Enter number 2: ");
-			int input2 = scan.nextInt();
-			
-			// Define the data in the Numbers Object
-			// and send it to the first Object in the chain
+				 Numbers request = new Numbers(input1, input2, operation);
 
-			 Numbers request = new Numbers(input1, input2, operation);
-
-			 chainCalc1.calculate(request);
+				 chainCalc1.calculate(request);
+			}
 
 			if (operation.equals("exit"))
 
